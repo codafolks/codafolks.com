@@ -23,7 +23,7 @@
 
 # vercel
 .vercel
-
+tsconfig.tsbuildinfo
 # yarn
 .yarn/cache
 .yarn/unplugged
