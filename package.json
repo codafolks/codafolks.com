@@ -75,6 +75,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@builder.io/partytown": "^0.10.2",
     "eslint-config-biome": "^1.9.3"
   }
 }
