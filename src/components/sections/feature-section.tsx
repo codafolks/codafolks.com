@@ -1,8 +1,6 @@
 "use client";
-
 import { MotionDiv } from "@/lib/motion";
 import { Code, GraduationCap, Users } from "lucide-react";
-
 const features = [
   {
     name: "Open-Source Innovation",

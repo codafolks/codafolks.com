@@ -1,5 +1,5 @@
+"use client";
 import { type MotionProps, motion } from "framer-motion";
-
 // Define types for different HTML elements with motion props
 type MotionDivProps = MotionProps & React.HTMLAttributes<HTMLDivElement>;
 type MotionSpanProps = MotionProps & React.HTMLAttributes<HTMLSpanElement>;
