@@ -1,0 +1,26 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+const {
+  as: Tag = "h3",
+  class: classOverwrite,
+  ...rest
+} = Astro.props as {
+  as: HTMLTag;
+  class?: string;
+};
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag;
+}>;
+---
+
+<Tag
+  class:list={[
+    "bg-gradient-to-r from-pink-500 to-purple-700 bg-clip-text text-transparent",
+    classOverwrite,
+  ]}
+  {...rest}
+>
+  <slot />
+</Tag>
