@@ -1,0 +1,53 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+const {
+  as: Tag = "button",
+  overrideClasses,
+  variant = "primary",
+  ...rest
+} = Astro.props as {
+  as: HTMLTag;
+  overrideClasses?: string;
+  variant?: keyof typeof buttonVariants;
+};
+
+const buttonVariants = {
+  primary: [
+    "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500 px-4 py-2",
+    overrideClasses,
+  ],
+  secondary: [
+    "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500 px-4 py-2",
+    overrideClasses,
+  ],
+  tertiary: [
+    "text-black hover:underline focus:underline px-4 py-2",
+    overrideClasses,
+  ],
+  success: [
+    "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500 px-4 py-2",
+    overrideClasses,
+  ],
+  danger: [
+    "bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 px-4 py-2",
+    overrideClasses,
+  ],
+  link: [
+    "text-blue-500 hover:text-blue-600 focus:ring-blue-500",
+    overrideClasses,
+  ],
+} as const;
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag;
+}> & {
+  variant?: keyof typeof buttonVariants;
+  overrideClasses?: string;
+};
+const classList = buttonVariants[variant ?? "primary"];
+---
+
+<Tag {...rest} class:list={classList}>
+  <slot />
+</Tag>

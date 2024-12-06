@@ -1,0 +1,15 @@
+---
+const { class: className } = Astro.props;
+type Props = {
+  class?: string;
+};
+---
+
+<section
+  class:list={[
+    "w-full py-32 px-16 flex flex-col items-center h-[calc(100vh-129px)] text-gray-300",
+    className,
+  ]}
+>
+  <slot />
+</section>

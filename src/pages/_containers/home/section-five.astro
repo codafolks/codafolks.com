@@ -1,0 +1,27 @@
+---
+import GradientTitle from "@/components/web/gradient-title.astro";
+import Card from "@/pages/_components/home/card.astro";
+import Section from "@/pages/_components/home/section.astro";
+---
+
+<Section>
+  <div class="grid mx-auto w-full max-w-7xl">
+    <GradientTitle as="h2" class="text-6xl py-2 font-extrabold"
+      >Why CodaFolks?
+    </GradientTitle>
+    <div class="grid grid-cols-3 gap-4 py-4">
+      <Card
+        title="Developer-Centric Projects"
+        description="We don’t just build for fun; we build software that makes a difference for the developer community."
+      />
+      <Card
+        title="Learning Resources"
+        description="Learn by doing with tools and projects that reflect real-world needs."
+      />
+      <Card
+        title="Developer Ecosystem"
+        description="Join a collaborative space where ideas grow into impactful solutions."
+      />
+    </div>
+  </div>
+</Section>
