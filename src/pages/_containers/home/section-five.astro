@@ -1,26 +1,30 @@
 ---
-import GradientTitle from "@/components/web/gradient-title.astro";
-import Card from "@/pages/_components/home/card.astro";
-import Section from "@/pages/_components/home/section.astro";
+import Button from "@/components/web/button.astro";
+import Title from "@/components/web/title.astro";
+import Card from "@/pages/_components/card.astro";
+import Section from "@/pages/_components/section.astro";
+import { Github } from "lucide-astro";
 ---
 
-<Section>
+<Section id="section-five" class="h-[calc(100vh-130px)]">
   <div class="grid mx-auto w-full max-w-7xl">
-    <GradientTitle as="h2" class="text-6xl py-2 font-extrabold"
-      >Why CodaFolks?
-    </GradientTitle>
+    <Title as="h2"> Explore, Learn, and Build Together </Title>
+    <p class="text-lg">
+      CodaFolks is here for developers who love to create, learn, and make an
+      impact. Start exploring today:
+    </p>
     <div class="grid grid-cols-3 gap-4 py-4">
       <Card
-        title="Developer-Centric Projects"
-        description="We don’t just build for fun; we build software that makes a difference for the developer community."
+        title="Browse Projects"
+        description="Discover tools and software designed to solve real-world problems and inspire innovation."
       />
       <Card
-        title="Learning Resources"
-        description="Learn by doing with tools and projects that reflect real-world needs."
+        title="Read Blogs & Tutorials"
+        description="Gain insights, practical knowledge, and coding tips from my development journey."
       />
       <Card
-        title="Developer Ecosystem"
-        description="Join a collaborative space where ideas grow into impactful solutions."
+        title="Collaborate with Consulting Services"
+        description="Have a project in mind? Let’s work together to bring your vision to life."
       />
     </div>
   </div>

@@ -12,28 +12,36 @@ const {
   variant?: keyof typeof buttonVariants;
 };
 
+const baseButtonClass =
+  "rounded-md focus:outline-none focus:ring-2 focus:ring-opacity-75 font-semibold px-4 py-2 inline-flex gap-1 items-center";
 const buttonVariants = {
   primary: [
-    "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500 px-4 py-2",
+    baseButtonClass,
+    "bg-gradient-to-r from-pink-500 to-purple-700 text-white hover:from-pink-600 hover:to-purple-800 focus:ring-pink-500",
     overrideClasses,
   ],
   secondary: [
-    "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500 px-4 py-2",
+    baseButtonClass,
+    "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500",
     overrideClasses,
   ],
   tertiary: [
-    "text-black hover:underline focus:underline px-4 py-2",
+    baseButtonClass,
+    "text-black hover:underline focus:underline",
     overrideClasses,
   ],
   success: [
-    "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500 px-4 py-2",
+    baseButtonClass,
+    "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500",
     overrideClasses,
   ],
   danger: [
-    "bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 px-4 py-2",
+    baseButtonClass,
+    "bg-red-500 text-white hover:bg-red-600 focus:ring-red-500",
     overrideClasses,
   ],
   link: [
+    baseButtonClass,
     "text-blue-500 hover:text-blue-600 focus:ring-blue-500",
     overrideClasses,
   ],

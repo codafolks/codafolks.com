@@ -1,67 +1,20 @@
 ---
+import Head from "./components/main-head.astro";
 import Header from "./components/main-header.astro";
 import Footer from "./components/main-footer.astro";
 ---
 
 <html lang="en">
-  <head>
-    <title>CodaFolks</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
+  <Head />
   <body>
     <Header />
-    <main class="flex flex-col bg-black">
+    <main id="home-main" class="bg-slate-900">
       <slot />
     </main>
     <Footer />
     <script>
-      function enableSmoothScroll(): void {
-        let isAnimating: boolean = false;
-        let scrollTarget: number = window.scrollY;
-        let animationFrameId: number | null = null;
-
-        window.addEventListener("wheel", onWheel, { passive: false });
-
-        function onWheel(e: WheelEvent): void {
-          e.preventDefault();
-
-          const delta: number = e.deltaY; // Use deltaY directly without inversion
-          scrollTarget += delta;
-          scrollTarget = Math.max(
-            0,
-            Math.min(
-              scrollTarget,
-              document.body.scrollHeight - window.innerHeight,
-            ),
-          );
-
-          if (!isAnimating) {
-            isAnimating = true;
-            animateScroll();
-          }
-        }
-
-        function animateScroll(): void {
-          const currentScroll: number = window.scrollY;
-          const distance: number = scrollTarget - currentScroll;
-          const step: number = distance * 0.09;
-
-          window.scrollBy(0, step);
-
-          if (Math.abs(distance) > 1) {
-            animationFrameId = requestAnimationFrame(animateScroll);
-          } else {
-            window.scrollTo(0, scrollTarget);
-            isAnimating = false;
-            if (animationFrameId) {
-              cancelAnimationFrame(animationFrameId);
-            }
-          }
-        }
-      }
-      // Activate smooth scrolling
-      enableSmoothScroll();
+      import "@/utils/smooth-scrolling";
+      import "@/utils/animated-sections";
     </script>
   </body>
 </html>

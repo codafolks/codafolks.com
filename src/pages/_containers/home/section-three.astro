@@ -1,18 +1,30 @@
 ---
-import GradientTitle from "@/components/web/gradient-title.astro";
-import Section from "@/pages/_components/home/section.astro";
+import Title from "@/components/web/title.astro";
+import Card from "@/pages/_components/card.astro";
+import Section from "@/pages/_components/section.astro";
 ---
 
-<Section>
+<Section id="section-three">
   <div class="grid mx-auto w-full max-w-7xl">
-    <GradientTitle as="h2" class="text-6xl py-2 font-extrabold"
-      >Tools for Developers, By Developers
-    </GradientTitle>
-    <p class="text-2xl">
-      Every tool and project at CodaFolks is built with one goal: to empower
-      developers like you. From utilities that streamline your workflow to
-      resources that solve common challenges, we’re here to help you code
-      smarter, faster, and better.
+    <Title as="h2"> Why CodaFolks? </Title>
+    <p class="text-lg">
+      CodaFolks is driven by the belief that software is most powerful when
+      shared, and learning happens best when it’s hands-on. Here’s why this
+      space stands out:
     </p>
+    <div class="grid grid-cols-3 gap-4 py-4">
+      <Card
+        title="Built by a Developer, for Developers"
+        description="As a developer myself, I know what it’s like to seek inspiration, resources, and collaboration."
+      />
+      <Card
+        title="Open-Source and Transparent"
+        description="My projects are here for you to explore, use, and learn from—no hidden agendas."
+      />
+      <Card
+        title="Personal and Passionate"
+        description="This is my side project, born from a passion for coding and a desire to make a difference."
+      />
+    </div>
   </div>
 </Section>

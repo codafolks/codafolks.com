@@ -1,32 +1,28 @@
 ---
-import GradientTitle from "@/components/web/gradient-title.astro";
-
-import Card from "@/pages/_components/home/card.astro";
-import Section from "@/pages/_components/home/section.astro";
+import Title from "@/components/web/title.astro";
+import Card from "@/pages/_components/card.astro";
+import Section from "@/pages/_components/section.astro";
 ---
 
-<Section>
+<Section id="section-four">
   <div class="grid mx-auto w-full max-w-7xl">
-    <GradientTitle as="h2" class="text-6xl py-2 font-extrabold"
-      >Join a Community of Makers
-    </GradientTitle>
-    <p class="text-2xl">
-      CodaFolks isn’t about one person—it’s about all of us. Developers,
-      problem-solvers, and creators coming together to shape the future of
-      software. Here’s how you can be part of it:
-    </p>
-    <div class="grid grid-cols-3 gap-4 py-4">
+    <Title as="h2">What You’ll Find Here </Title>
+    <div class="grid grid-cols-4 gap-4">
       <Card
-        title="Learn and Innovate"
-        description="Access practical courses and dive into projects designed to enhance your skills."
+        title="Side Projects in Action"
+        description="A collection of tools and software designed to solve real-world challenges or spark ideas"
       />
       <Card
-        title="Build and Collaborate"
-        description="Contribute to tools and software that developers everywhere can rely on."
+        title="Open-Source Learning"
+        description="Get hands-on with the code. Explore repositories, learn from real examples, and contribute your skills."
       />
       <Card
-        title="Grow and Inspire"
-        description="Be part of a network that celebrates creativity, collaboration, and impact."
+        title="Developer Insights"
+        description="Blogs, tutorials, and stories from my development journey to help you grow."
+      />
+      <Card
+        title="Consulting Services"
+        description="Need a software solution? I’m here to collaborate and bring your vision to life."
       />
     </div>
   </div>

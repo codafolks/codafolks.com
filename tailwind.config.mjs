@@ -12,7 +12,6 @@ export default {
 					"background-image": "url('/assets/grid-100x100.png')",
 					"background-size": "100px 100px",
 					"background-position-y": "-9px",
-					"-webkit-mask-image": "linear-gradient(to bottom, transparent, 10%, white, 90%, transparent)",
 					"mask-image": "linear-gradient(to bottom, transparent, 10%, white, 90%, transparent)"
 				},
 			});

@@ -1,0 +1,18 @@
+---
+
+---
+
+<canvas id="animated-code-canvas" class="absolute mx-auto bottom-0"></canvas>
+<script>
+  import { DotLottie } from "@lottiefiles/dotlottie-web";
+  const dotLottie = () =>
+    new DotLottie({
+      autoplay: true,
+      loop: true,
+      canvas: document.querySelector(
+        "#animated-code-canvas",
+      ) as HTMLCanvasElement,
+      src: "assets/animated-code.json",
+    });
+  document.addEventListener("DOMContentLoaded", dotLottie);
+</script>

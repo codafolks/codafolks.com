@@ -1,0 +1,18 @@
+---
+
+---
+
+<canvas id="animated-team-canvas" class="absolute bottom-0 left-0"></canvas>
+<script>
+  import { DotLottie } from "@lottiefiles/dotlottie-web";
+  const dotLottie = () =>
+    new DotLottie({
+      autoplay: true,
+      loop: true,
+      canvas: document.querySelector(
+        "#animated-team-canvas",
+      ) as HTMLCanvasElement,
+      src: "assets/animated-team.json",
+    });
+  document.addEventListener("DOMContentLoaded", dotLottie);
+</script>
