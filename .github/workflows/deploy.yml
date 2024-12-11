@@ -3,7 +3,7 @@ name: Deploy Astro to GitHub Pages
 on:
   push:
     branches:
-      - migrate-to-astro # Adjust if your default branch is different
+      - main # Adjust if your default branch is different
 
 permissions:
   contents: write
