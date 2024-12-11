@@ -1,7 +1,13 @@
 ---
+import Title from "@/components/web/title.astro";
 import MainLayout from "@/layouts/main-layout.astro";
+import Section from "@/pages/_components/section.astro";
 ---
 
 <MainLayout>
-  <h1>Projects</h1>
+  <Section id="projects" class="h-[calc(100vh-57px)]">
+    <div class="flex items-center justify-center mx-auto w-full max-w-7xl">
+      <Title as="h1"> Projects coming soon... </Title>
+    </div>
+  </Section>
 </MainLayout>
