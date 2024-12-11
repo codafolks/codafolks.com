@@ -1,0 +1,31 @@
+---
+import Button from "@/components/web/button.astro";
+import Title from "@/components/web/title.astro";
+import Card from "@/pages/_components/card.astro";
+import Section from "@/pages/_components/section.astro";
+import { Github } from "lucide-astro";
+---
+
+<Section id="section-five" class="h-[calc(100vh-140px)]">
+  <div class="grid mx-auto w-full max-w-7xl">
+    <Title as="h2"> Explore, Learn, and Build Together </Title>
+    <p class="text-lg">
+      CodaFolks is here for developers who love to create, learn, and make an
+      impact. Start exploring today:
+    </p>
+    <div class="grid grid-cols-3 gap-4 py-4">
+      <Card
+        title="Browse Projects"
+        description="Discover tools and software designed to solve real-world problems and inspire innovation."
+      />
+      <Card
+        title="Read Blogs & Tutorials"
+        description="Gain insights, practical knowledge, and coding tips from my development journey."
+      />
+      <Card
+        title="Collaborate with Consulting Services"
+        description="Have a project in mind? Let’s work together to bring your vision to life."
+      />
+    </div>
+  </div>
+</Section>

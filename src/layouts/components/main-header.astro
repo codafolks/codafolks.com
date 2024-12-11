@@ -1,0 +1,35 @@
+---
+import logo from "@/assets/rounded-logo.png";
+import { Image } from "astro:assets";
+const links = [
+  { href: "/", text: "Home" },
+  { href: "/projects", text: "Projects" },
+  { href: "/contact", text: "Contact" },
+  { href: "/blog", text: "Blog" },
+];
+import Button from "@/components/web/button.astro";
+---
+
+<header
+  class="w-full fixed top-0 px-16 py-4 grid items-center border-b border-gray-800 bg-slate-900 z-30"
+>
+  <nav class="flex items-center justify-between w-full max-w-7xl mx-auto">
+    <Image src={logo} alt="CodaFolks logo" class="size-10" />
+    <ul class="flex">
+      {
+        links.map((link) => (
+          <li>
+            <Button
+              as="a"
+              variant="tertiary"
+              href={link.href}
+              class="text-gray-100"
+            >
+              {link.text}
+            </Button>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

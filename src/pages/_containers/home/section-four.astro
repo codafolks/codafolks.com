@@ -1,0 +1,29 @@
+---
+import Title from "@/components/web/title.astro";
+import Card from "@/pages/_components/card.astro";
+import Section from "@/pages/_components/section.astro";
+---
+
+<Section id="section-four">
+  <div class="grid mx-auto w-full max-w-7xl">
+    <Title as="h2">What You’ll Find Here </Title>
+    <div class="grid grid-cols-4 gap-4">
+      <Card
+        title="Side Projects in Action"
+        description="A collection of tools and software designed to solve real-world challenges or spark ideas"
+      />
+      <Card
+        title="Open-Source Learning"
+        description="Get hands-on with the code. Explore repositories, learn from real examples, and contribute your skills."
+      />
+      <Card
+        title="Developer Insights"
+        description="Blogs, tutorials, and stories from my development journey to help you grow."
+      />
+      <Card
+        title="Consulting Services"
+        description="Need a software solution? I’m here to collaborate and bring your vision to life."
+      />
+    </div>
+  </div>
+</Section>

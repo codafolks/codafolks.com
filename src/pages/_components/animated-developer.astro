@@ -1,0 +1,22 @@
+---
+
+---
+
+<canvas
+  id="animated-developer-canvas"
+  class="absolute bottom-0 right-10"
+  width="150"></canvas>
+
+<script>
+  import { DotLottie } from "@lottiefiles/dotlottie-web";
+  const dotLottie = () =>
+    new DotLottie({
+      autoplay: true,
+      loop: true,
+      canvas: document.querySelector(
+        "#animated-developer-canvas",
+      ) as HTMLCanvasElement,
+      src: "assets/animated-developer.json",
+    });
+  document.addEventListener("DOMContentLoaded", dotLottie);
+</script>

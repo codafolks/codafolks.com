@@ -1,0 +1,19 @@
+---
+
+---
+
+<canvas id="animated-find-canvas" class="absolute bottom-0 right-0" width="150"
+></canvas>
+<script>
+  import { DotLottie } from "@lottiefiles/dotlottie-web";
+  const dotLottie = () =>
+    new DotLottie({
+      autoplay: true,
+      loop: true,
+      canvas: document.querySelector(
+        "#animated-find-canvas",
+      ) as HTMLCanvasElement,
+      src: "assets/animated-find.json",
+    });
+  document.addEventListener("DOMContentLoaded", dotLottie);
+</script>
