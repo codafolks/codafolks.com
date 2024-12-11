@@ -21,6 +21,7 @@ function enableSectionSnapScroll(): void {
     const currentScroll = window.scrollY;
     const currentSectionIndex = Math.round(currentScroll / (window.innerHeight));
 
+
     // Determine the next target section index based on scroll direction
     let targetIndex = currentSectionIndex;
 
@@ -77,6 +78,5 @@ function enableSectionSnapScroll(): void {
     return (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t)
   }
 }
-
 // Activate the improved smooth snapping scroll
 enableSectionSnapScroll();
