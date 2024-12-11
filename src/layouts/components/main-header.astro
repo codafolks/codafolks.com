@@ -6,14 +6,18 @@ const links = [
   { href: "/projects", text: "Projects" },
   { href: "/blog", text: "Blog" },
 ];
+
 import Button from "@/components/web/button.astro";
 ---
 
 <header
-  class="w-full fixed top-0 px-16 py-4 grid items-center border-b border-gray-800 bg-slate-900 z-30"
+  class="w-full sticky top-0 px-8 py-4 grid items-center border-b border-gray-800 bg-slate-900 z-30"
 >
   <nav class="flex items-center justify-between w-full max-w-7xl mx-auto">
-    <Image src={logo} alt="CodaFolks logo" class="size-10" />
+    <a href="/" class="flex items-center">
+      <Image src={logo} alt="CodaFolks logo" class="size-6 md:size-10" />
+    </a>
+
     <ul class="flex">
       {
         links.map((link) => (

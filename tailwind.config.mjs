@@ -9,7 +9,8 @@ export default {
 		},
 	},
 	plugins: [
-		function ({ addComponents, theme }) {
+		require('@tailwindcss/typography'),
+		function ({ addComponents }) {
 			addComponents({
 				'.bg-grid': {
 					"background-image": "url('/assets/grid-100x100.png')",

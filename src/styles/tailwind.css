@@ -7,4 +7,11 @@
   html {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji
   }
+
+  .gradient-text {
+    background-image: linear-gradient(to right, #ec4899, #7e22ce);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
