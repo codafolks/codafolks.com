@@ -1,13 +1,16 @@
 ---
-import Head from "./components/Head.astro";
+
 import Header from "./components/Header.astro";
 import Footer from "./components/Footer.astro";
+import Head from "@/components/Head.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <html lang="en">
-  <Head />
+  <Head 
+    section="blog"
+  />
   <body class="bg-slate-900">
     <Header />
     <main class="text-white p-8">

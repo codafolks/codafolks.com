@@ -10,15 +10,5 @@ export default {
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
-		function ({ addComponents }) {
-			addComponents({
-				'.bg-grid': {
-					"background-image": "url('/assets/grid-100x100.png')",
-					"background-size": "100px 100px",
-					"background-position-y": "-9px",
-					"mask-image": "linear-gradient(to bottom, transparent, 10%, white, 90%, transparent)"
-				},
-			});
-		},
 	],
 }
