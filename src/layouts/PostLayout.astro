@@ -1,9 +1,8 @@
 ---
-import Head from "./components/main-head.astro";
-import Header from "./components/main-header.astro";
-import Footer from "./components/main-footer.astro";
-import Title from "@/components/web/title.astro";
-import Prose from "@/components/web/prose.astro";
+import Head from "./components/Head.astro";
+import Header from "./components/Header.astro";
+import Footer from "./components/Footer.astro";
+
 const { frontmatter } = Astro.props;
 ---
 
@@ -13,9 +12,7 @@ const { frontmatter } = Astro.props;
     <Header />
     <main class="text-white p-8">
       <div class="mx-auto w-full max-w-7xl">
-        <Prose>
           <slot />
-        </Prose>
         <p>Written on: {frontmatter.date}</p>
       </div>
     </main>

@@ -1,23 +1,22 @@
 ---
-// import Button from "@/components/web/button.astro";
-import Title from "@/components/web/title.astro";
-import MainLayout from "@/layouts/main-layout.astro";
-// import Card from "@/pages/_components/card.astro";
-import Section from "@/pages/_components/section.astro";
-// const posts = Object.values(
-//   import.meta.glob("@/pages/posts/*.md", { eager: true }),
-// ) as Post[];
+import Button from "@/components/Button.astro";
+import Card from "@/components/Card.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
 
-// interface Post {
-//   frontmatter: {
-//     title: string;
-//     description: string;
-//   };
-//   url: string;
-// }
+const posts = Object.values(
+  import.meta.glob("@/pages/posts/*.md", { eager: true }),
+) as Post[];
+
+interface Post {
+  frontmatter: {
+    title: string;
+    description: string;
+  };
+  url: string;
+}
 ---
 
-<!-- <MainLayout>
+<MainLayout>
   <div class="mx-auto w-full max-w-7xl text-gray-100">
     <div class="grid grid-cols-3 gap-4 py-8 w-full">
       {
@@ -35,11 +34,11 @@ import Section from "@/pages/_components/section.astro";
       }
     </div>
   </div>
-</MainLayout> -->
-<MainLayout>
+</MainLayout>
+<!-- <MainLayout>
   <Section id="projects" class="h-[calc(100vh-57px)]">
     <div class="flex items-center justify-center mx-auto w-full max-w-7xl">
       <Title as="h1">Blog coming soon... </Title>
     </div>
   </Section>
-</MainLayout>
+</MainLayout> -->
