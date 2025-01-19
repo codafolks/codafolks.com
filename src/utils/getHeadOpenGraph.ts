@@ -1,25 +1,39 @@
 import { defaultMetaDescription } from "@/data/site/defaultMetaDescription";
-import { buildPostURL } from "@/utils/buildPostURL";
+import { buildURL } from "@/utils/mapCollection";
+
 import { getEntry } from "astro:content";
 import { format } from "date-fns";
 
-export const getHeadOpenGraph = async (slug?: string) => {
-  const post = slug ? await getEntry("blog", slug) : undefined;
+export const getHeadOpenGraph = async (params: { collectionSlug?: string, collectionID?: string }) => {
+  console.info("params", params);
+  let post;
+  let path;
+  if(params?.collectionID) {
+    post = await getEntry("projects", params.collectionID);
+    path = params.collectionID;
+  } else if(params?.collectionSlug) {
+    post = await getEntry("blog", params.collectionSlug);
+    path = params.collectionSlug;
+  }
+
+  console.info(post);
+
+  
   const title = post?.data?.title ?? defaultMetaDescription.title
   const description = post?.data?.description ?? defaultMetaDescription.description;
-  const image = `https://falconiere.io/${slug ? `/api/${slug}.png` : "/api/og-image.png"}`;
+  const image = `https://falconiere.io/${path ? `/api/${path}.png` : "/api/og-image.png"}`;
   const author = post?.data?.author ?? defaultMetaDescription.author;
   const date = format(new Date(post?.data?.date ?? new Date()), "yyyy-MM-dd");
   const tags = post?.data?.tags?.join(", ") ?? "";
-  const url = post ? buildPostURL(post) : "https://falconiere.io";
+  const url = post ? buildURL(post) : "https://falconiere.io";
   const site_name = "Falconiere Barbosa";
   const type = post ? "article" : "website";
   const coverAlt = post?.data?.coverAlt ?? "Falconiere Barbosa - Blog";
   const keywords = defaultMetaDescription.keywords;
-  const section = slug ? "blog" : "home";
+  const section = path ? "blog" : "home";
 
   return {
-    title: slug ? `${title} - Insights by Falconiere R. Barbosa` : title,
+    title: path ? `${title} - Insights by Falconiere R. Barbosa` : title,
     description,
     image,
     author,

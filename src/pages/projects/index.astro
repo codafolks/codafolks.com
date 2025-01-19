@@ -5,18 +5,18 @@ import { mapCollection } from "@/utils/mapCollection";
 import { sortByDate } from "@/utils/sortByDate";
 import { getCollection } from "astro:content";
 
-const data = await getCollection("blog", ({ data }) => {
+const data = await getCollection("projects", ({ data }) => {
   return data.draft !== true || import.meta.env.MODE === "development";
 });
 
-const posts = data.map(mapCollection).sort(sortByDate);
+const projects = data.map(mapCollection).sort(sortByDate);
 ---
 
 <MainLayout>
   <div class="mx-auto w-full max-w-7xl text-gray-100">
     <div class="grid grid-cols-3 gap-4 py-8 w-full">
       {
-        posts?.map((post) => (
+        projects?.map((post) => (
           <a
             href={post.data.url}
             class="card gap-4 grid grid-rows-[auto,max-content] hover:border-fuchsia-500 transition duration-300 ease-in-out p-4 border border-gray-800 rounded-lg cursor-pointer"

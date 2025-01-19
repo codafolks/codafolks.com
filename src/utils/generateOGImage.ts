@@ -7,10 +7,6 @@ import satori from "satori";
 import { html } from "satori-html";
 import sharp from "sharp";
 
-type Params = {
-  post?: CollectionEntry<"blog"> | null;
-}
-
 const getLocalImageToBase64 = async (pathImage: string) => {
   const imageBuffer = await fs.readFile(pathImage);
   let ext = path.extname(pathImage).slice(1);
@@ -32,7 +28,8 @@ const getLocalImageToBase64 = async (pathImage: string) => {
   return `data:image/${ext};base64,${finalImage}`;
 }
 
-export const generateOGImage = async ({ post }: Params = {}) => {
+export const generateOGImage = async (params?: { collection: CollectionEntry<"blog"> | CollectionEntry<"projects"> | undefined }) => {
+  const collection = params?.collection;
   const interExtraBold = await fs.readFile(
     "./public/fonts/Inter/static/Inter_28pt-ExtraBold.ttf"
   );
@@ -41,18 +38,18 @@ export const generateOGImage = async ({ post }: Params = {}) => {
     "./public/fonts/Inter/static/Inter_28pt-Regular.ttf"
   );
 
-  const isPost = post !== undefined;
+  const isPost = collection !== undefined;
 
-  const title = post?.data?.title || "Falconiere R. Barbosa"
-  const description = post?.data?.description || defaultMetaDescription.summary
-  const pathImage = post?.data?.cover
-    ? `./src/data/blog/assets/images/${post?.data?.cover}`
-    : "./src/data/blog/assets/images/Astronaut-Headshot-Closeup.jpeg";
+  const title = collection?.data?.title || "Codafolks"
+  const description = collection?.data?.description || defaultMetaDescription.summary
+  const pathImage = collection?.data?.cover
+    ? `./src/data/assets/images/${collection?.data?.cover}`
+    : "./src/data/assets/images/Astronaut-Headshot-Closeup.jpeg";
 
 
   const image = await getLocalImageToBase64(pathImage);
   const logo = await getLocalImageToBase64("./public/logo.png");
-  const avatar = await getLocalImageToBase64("./src/assets/avatar.png");
+  
 
   const template = html`
   <div style="
@@ -79,13 +76,6 @@ export const generateOGImage = async ({ post }: Params = {}) => {
       gap: 30px;
       background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%,  rgba(0, 0, 0, 0.7) 100%,  rgba(0, 0, 0, 0.5) 100%);
     ">
-      <img 
-        src="${avatar}" 
-        style="width: 400px; height: 400px; border-radius: 50%;
-        object-fit: cover;
-        overflow: hidden;
-        ${isPost && (`display: none;`)}
-        "/>
       <div style="display: flex; flex-direction: column; justify-content: center; flex: 1; margin: auto 0;">
         <h1 style="
           font-size: 48px;

@@ -4,8 +4,7 @@ import type { SectionBlog } from "@/types/SectionBlog";
 import { getHeadOpenGraph } from "@/utils/getHeadOpenGraph";
 
 const params = Astro.params;
-const slug = params?.path;
-const meta = await getHeadOpenGraph(slug);
+const meta = await getHeadOpenGraph(params);
 
 interface Props {
   title?: string;
@@ -27,7 +26,7 @@ const { title, description, section } = Astro.props as Props;
   <!-- HTML Meta Tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta property="og:image" content={meta.image} />
+  <!-- <meta property="og:image" content={meta.image} /> -->
 
   <meta name="title" content={title ?? meta.title} />
   <meta name="description" content={description ?? meta.description} />
@@ -37,11 +36,11 @@ const { title, description, section } = Astro.props as Props;
   <!-- Google / Search Engine Tags -->
   <meta itemprop="name" content={title ?? meta.title} />
   <meta itemprop="description" content={description ?? meta.description} />
-  <meta itemprop="image" content={meta.image} />
+  <!-- <meta itemprop="image" content={meta.image} /> -->
 
   <!-- Twitter Meta Tags -->
-  <meta property="twitter:domain" content="https://falconiere.io" />
-  <meta property="twitter:image" content={meta.image} />
+  <meta property="twitter:domain" content="https://codafolks.com" />
+  <!-- <meta property="twitter:image" content={meta.image} /> -->
   <meta name="twitter:title" content={title ?? meta.title} />
   <meta name="twitter:description" content={description ?? meta.description} />
   <meta name="twitter:card" content="summary_large_image" />
@@ -50,7 +49,7 @@ const { title, description, section } = Astro.props as Props;
 
   <!-- Facebook Meta Tags -->
   <meta property="og:title" content={title ?? meta.title} />
-  <meta property="og:logo" content="https://falconiere.io/logo.png" />
+  <meta property="og:logo" content="https://codafolks.com/logo.png" />
   <meta property="og:description" content={description ?? meta.description} />
   <meta property="og:image:alt" content={meta.coverAlt} />
   <meta property="og:image:width" content="1200" />
