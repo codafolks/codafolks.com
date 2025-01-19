@@ -3,8 +3,17 @@
 import Header from "./components/Header.astro";
 import Footer from "./components/Footer.astro";
 import Head from "@/components/Head.astro";
+import { getEntry } from "astro:content";
+import Link from "@/components/Link.astro";
+import SocialLinks from "@/components/SocialLinks.astro";
+import PostTimeInfo from "@/components/PostTimeInfo.astro";
+import PostComments from "@/components/PostComments.astro";
 
-const { frontmatter } = Astro.props;
+const { path } = Astro.params;
+if (path === undefined) {
+  return Astro.redirect("/404");
+}
+const post = await getEntry("blog", path);
 ---
 
 <html lang="en">
@@ -14,11 +23,39 @@ const { frontmatter } = Astro.props;
   <body class="bg-slate-900">
     <Header />
     <main class="text-white p-8">
-      <div class="mx-auto w-full max-w-7xl">
+      <article class="max-w-4xl mx-auto p-4 md:p-6">
+        <div class="flex justify-between items-center pb-4">
+          <Link href="/">
+            <i data-lucide="arrow-left" class="h-4 w-4"></i>
+            <span>Back to Home</span>
+          </Link>
+          <SocialLinks />
+        </div>
+        <header class="border-divider pt-10">
+          <PostTimeInfo post={post} />
+          <h1 class="text-2xl md:text-4xl font-bold py-4">
+            {post?.data.title}
+          </h1>
+          <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400">
+            {post?.data.description}
+          </p>
+        </header>
+        <div class="prose dark:prose-invert prose-lg max-w-none pb-20">
           <slot />
-        <p>Written on: {frontmatter.date}</p>
-      </div>
+        </div>
+        <SocialLinks />
+        <PostComments />
+      </article>
     </main>
     <Footer />
+    <script>
+      import { createIcons, ArrowLeft } from "lucide";
+      createIcons({
+        icons: {
+          ArrowLeft,
+        },
+      });
+    </script>
+  
   </body>
 </html>
