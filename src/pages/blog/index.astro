@@ -1,0 +1,35 @@
+---
+import Button from "@/components/Button.astro";
+import Card from "@/components/Card.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import { mapBlogCollection } from "@/utils/mapBlogCollection";
+import { sortByDate } from "@/utils/sortByDate";
+import { getCollection } from "astro:content";
+
+const data = await getCollection("blog", ({ data }) => {
+	return data.draft !== true;
+});
+
+const posts = data.map(mapBlogCollection).sort(sortByDate);
+
+---
+
+<MainLayout>
+  <div class="mx-auto w-full max-w-7xl text-gray-100">
+    <div class="grid grid-cols-3 gap-4 py-8 w-full">
+      {
+        posts?.map((post) => (
+          <a href={post.data.url} class="card gap-4 grid grid-rows-[auto,max-content] hover:border-fuchsia-500 transition duration-300 ease-in-out p-4 border border-gray-800 rounded-lg cursor-pointer">
+            <Card
+              title={post.data.title}
+              description={post.data.description}
+            />
+            <Button>
+              Read More
+            </Button>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</MainLayout>
