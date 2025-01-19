@@ -13,4 +13,4 @@ tags:
   - blog
   - beginning
 ---
-CodaFolks will be the place where I will put everything I learned. Ill do my best
+Why I created CodaFolks?
