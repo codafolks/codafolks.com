@@ -14,4 +14,4 @@ tags:
   - beginning
 ---
 ![beach-woman-shadow.webp](../../assets/images/beach-woman-shadow.webp)
-Why I created CodaFolks?
+Why I created CodaFolks? Well I don't yet
