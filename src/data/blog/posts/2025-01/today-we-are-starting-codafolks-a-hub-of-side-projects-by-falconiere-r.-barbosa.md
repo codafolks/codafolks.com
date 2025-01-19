@@ -13,4 +13,5 @@ tags:
   - blog
   - beginning
 ---
+![beach-woman-shadow.webp](../../assets/images/beach-woman-shadow.webp)
 Why I created CodaFolks?
