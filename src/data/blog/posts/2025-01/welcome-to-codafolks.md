@@ -13,5 +13,4 @@ tags:
   - blog
   - beginning
 ---
-![cover-time-art.webp](../../assets/images/cover-time-art.webp)
 I have procrastinated about codafolks, but now I am here to make this real! I will dedicate time to learning more and more. olá
