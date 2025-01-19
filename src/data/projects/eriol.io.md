@@ -11,3 +11,5 @@ tags:
   - blogging
 ---
 here is another project
+
+![Astronaut-Headshot-Closeup.jpeg](../../assets/images/Astronaut-Headshot-Closeup.jpeg)
