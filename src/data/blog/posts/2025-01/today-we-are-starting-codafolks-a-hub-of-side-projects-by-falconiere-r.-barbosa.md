@@ -14,4 +14,4 @@ tags:
   - beginning
 ---
 ![beach-woman-shadow.webp](../../assets/images/beach-woman-shadow.webp)
-Why I created CodaFolks? Well I don't know yet
+Why did I create CodaFolks? Well, I established CodaFolks to distinguish my persona from my profession. I am a software developer, but I am also more than that. It may seem obvious, but we often lose sight of who we are over time.  
