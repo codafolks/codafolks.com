@@ -3,11 +3,13 @@ import logo from "@/assets/logo-codafolks.png";
 import { Image } from "astro:assets";
 
 import Button from "@/components/Button.astro";
-const links = [
-  { href: "/", text: "Home" },
-  { href: "/projects", text: "Projects" },
-  { href: "/blog", text: "Blog" },
-];
+const links = !import.meta.env.PROD
+  ? [
+      { href: "/", text: "Home" },
+      { href: "/projects", text: "Projects" },
+      { href: "/blog", text: "Blog" },
+    ]
+  : [];
 ---
 
 <header

@@ -3,7 +3,7 @@ export const defaultMetaDescription = {
   description: `
 Discover CodaFolks by Falconiere R. Barbosa—a hub for creative software development. Explore innovative side projects, dive into open-source code, and gain insights from a passionate developer. Perfect for developers seeking inspiration, learning, and collaboration.
 `,
-  summary: "A software developer by profession, a lifelong learner by passion. My interests stretch far beyond code, into the realms of science, art, and the human experience. This blog reflects my journey of growth and discovery.",
+  summary: "CodaFolks is a hub for creative software development. Explore innovative side projects, dive into open-source code, and gain insights from a passionate developer. Perfect for developers seeking inspiration, learning, and collaboration.",
   image: "Astronaut-Headshot-Closeup.jpeg",
   author: "Falconiere R. Barbosa",
   keywords: `CodaFolks, side projects, open-source software, software development, developer tools, coding tutorials, developer insights, software consulting, coding resources, Falconiere R. Barbosa`,
