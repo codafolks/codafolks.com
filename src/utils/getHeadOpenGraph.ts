@@ -30,7 +30,7 @@ export const getHeadOpenGraph = async (params: { collectionSlug?: string, collec
   const section = path ? "blog" : "home";
 
   return {
-    title: path ? `${title} - CodaFolks` : title,
+    title: path ? `${title} - by CodaFolks` : title,
     description,
     image,
     author,
