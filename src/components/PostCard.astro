@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import path from "path";
+import { getLocalImageToBase64 } from "@/utils/getLocalImageToBase64";
+const { title, description } = Astro.props;
+type Props = {
+  title: string;
+  description: string;
+  author: string;
+  date: string;
+  tags: string[] | null;
+  url: string;
+  coverAlt: string;
+  cover: string;
+};
+
+const { url, cover, coverAlt, tags, author, date } = Astro.props;
+
+const absolutePath = path.resolve(
+  import.meta.dirname,
+  `../data/assets/images/${cover}`
+);
+const coverImage = await getLocalImageToBase64(absolutePath);
+---
+
+<a
+  href={url}
+  class="group flex flex-col overflow-hidden rounded-lg border border-gray-800 bg-slate-900/50 transition duration-300 hover:border-fuchsia-500"
+>
+  <div class="relative h-48 overflow-hidden">
+    <Image
+      src={coverImage}
+      alt={coverAlt}
+      width={800}
+      height={400}
+      class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+    />
+  </div>
+  <div class="flex flex-1 flex-col justify-between p-6">
+    <div class="flex-1">
+      <div class="flex items-center gap-2 overflow-hidden">
+        {
+          tags?.map((tag) => (
+            <span class="inline-flex items-center rounded-md bg-fuchsia-500/10 px-2 py-1 text-xs text-fuchsia-400">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+      <h3 class="mt-4 text-2xl font-semibold leading-tight text-gray-100">
+        {title}
+      </h3>
+      <p class="mt-3 text-gray-400 line-clamp-3">
+        {description}
+      </p>
+    </div>
+    <div class="mt-6 flex items-center gap-4">
+      <div class="text-sm text-gray-400">
+        <span>{author}</span>
+        <span class="mx-1">•</span>
+        <time>{date}</time>
+      </div>
+    </div>
+  </div>
+</a>

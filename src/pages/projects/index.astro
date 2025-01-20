@@ -1,5 +1,5 @@
 ---
-import Card from "@/components/Card.astro";
+import PostCard from "@/components/PostCard.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { mapCollection } from "@/utils/mapCollection";
 import { sortByDate } from "@/utils/sortByDate";
@@ -9,22 +9,27 @@ const data = await getCollection("projects", ({ data }) => {
   return data.draft !== true || import.meta.env.MODE === "development";
 });
 
-const projects = data.map(mapCollection).sort(sortByDate);
+const posts = data.map(mapCollection).sort(sortByDate);
 ---
 
 <MainLayout>
   <div class="mx-auto w-full max-w-7xl min-h-[calc(100vh-200px)]">
+    <h1 class="text-4xl font-bold text-gray-100">Projects</h1>
+    <p class="text-gray-400">Here you can find some of my projects.</p>
     <div class="grid grid-cols-3 gap-4 py-8 w-full">
       {
-        projects?.map((post) => (
-          <a
-            href={post.data.url}
-            class="card gap-4 grid grid-rows-[auto,max-content] hover:border-fuchsia-500 transition duration-300 ease-in-out p-4 border border-gray-800 rounded-lg cursor-pointer"
-          >
-            <Card title={post.data.title} description={post.data.description} />
-            <span class="gradient-text">Read More</span>
-          </a>
-        ))
+        posts?.map((post) => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            author={post.data.author}
+            date={post.data.date}
+            tags={post.data.tags ?? []}
+            url={post.data.url}
+            cover={post.data.cover}
+            coverAlt={post.data.coverAlt}
+          />
+        )) ?? <div>No posts found</div>
       }
     </div>
   </div>
