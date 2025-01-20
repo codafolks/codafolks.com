@@ -20,12 +20,13 @@ export const getHeadOpenGraph = async (params: { collectionSlug?: string, collec
   const image = `${site_url}/${path ? `/api/${path}.png` : "/api/og-image.png"}`;
   const author = post?.data?.author ?? defaultMetaDescription.author;
   const date = format(new Date(post?.data?.date ?? new Date()), "yyyy-MM-dd");
-  const tags = post?.data?.tags?.join(", ") ?? "";
+  const tags = post?.data?.tags?.join(", ") ?? defaultMetaDescription.tags;
   const url = post ? buildURL(post) : site_url;
   const site_name = "CodaFolks";
   const type = post ? "article" : "website";
   const coverAlt = post?.data?.coverAlt ?? "CodaFolks - Blog";
   const keywords = defaultMetaDescription.keywords;
+  
   const section = path ? "blog" : "home";
 
   return {
