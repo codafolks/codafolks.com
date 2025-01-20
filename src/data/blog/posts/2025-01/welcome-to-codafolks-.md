@@ -50,7 +50,7 @@ Whether you’re here to explore my projects, learn from the code, or collaborat
 
 Here’s how you can get started:
 
-- <a href="https://codafolks.com" target="_blank">Browse My Projects</a>: Check out the tools and applications I’ve created so far.
+- <a href="https://codafolks.com/projects" target="_blank">Browse My Projects</a>: Check out the tools and applications I’ve created so far.
 - <a href="https://github.com/codafolks" target="_blank">Follow Me on GitHub</a>: Dive into the code and see how it works.
 - <a href="https://github.com/falconiere" target="_blank">Get in Touch</a>: Do you have a question, an idea, or feedback? I’d love to hear from you.
 
