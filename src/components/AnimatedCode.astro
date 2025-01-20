@@ -2,7 +2,9 @@
 
 ---
 
-<canvas id="animated-code-canvas" class="absolute mx-auto bottom-0"></canvas>
+<canvas
+  id="animated-code-canvas"
+  class="absolute mx-auto bottom-10 w-[250px] h-[250px]"></canvas>
 <script>
   import { DotLottie } from "@lottiefiles/dotlottie-web";
   const dotLottie = () =>
@@ -10,7 +12,7 @@
       autoplay: true,
       loop: true,
       canvas: document.querySelector(
-        "#animated-code-canvas",
+        "#animated-code-canvas"
       ) as HTMLCanvasElement,
       src: "assets/animated-code.json",
     });

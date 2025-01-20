@@ -5,7 +5,6 @@ import { getEntry } from "astro:content";
 import { format } from "date-fns";
 
 export const getHeadOpenGraph = async (params: { collectionSlug?: string, collectionID?: string }) => {
-  console.info("params", params);
   let post;
   let path;
   if(params?.collectionID) {
@@ -15,25 +14,22 @@ export const getHeadOpenGraph = async (params: { collectionSlug?: string, collec
     post = await getEntry("blog", params.collectionSlug);
     path = params.collectionSlug;
   }
-
-  console.info(post);
-
-  
+  const site_url = "https://codafolks.com";
   const title = post?.data?.title ?? defaultMetaDescription.title
   const description = post?.data?.description ?? defaultMetaDescription.description;
-  const image = `https://falconiere.io/${path ? `/api/${path}.png` : "/api/og-image.png"}`;
+  const image = `${site_url}/${path ? `/api/${path}.png` : "/api/og-image.png"}`;
   const author = post?.data?.author ?? defaultMetaDescription.author;
   const date = format(new Date(post?.data?.date ?? new Date()), "yyyy-MM-dd");
   const tags = post?.data?.tags?.join(", ") ?? "";
-  const url = post ? buildURL(post) : "https://falconiere.io";
-  const site_name = "Falconiere Barbosa";
+  const url = post ? buildURL(post) : site_url;
+  const site_name = "CodaFolks";
   const type = post ? "article" : "website";
-  const coverAlt = post?.data?.coverAlt ?? "Falconiere Barbosa - Blog";
+  const coverAlt = post?.data?.coverAlt ?? "CodaFolks - Blog";
   const keywords = defaultMetaDescription.keywords;
   const section = path ? "blog" : "home";
 
   return {
-    title: path ? `${title} - Insights by Falconiere R. Barbosa` : title,
+    title: path ? `${title} - CodaFolks` : title,
     description,
     image,
     author,
@@ -44,6 +40,7 @@ export const getHeadOpenGraph = async (params: { collectionSlug?: string, collec
     type,
     coverAlt,
     keywords,
-    section
+    section,
+    site_url
   };
 };

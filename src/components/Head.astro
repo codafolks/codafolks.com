@@ -39,17 +39,17 @@ const { title, description, section } = Astro.props as Props;
   <!-- <meta itemprop="image" content={meta.image} /> -->
 
   <!-- Twitter Meta Tags -->
-  <meta property="twitter:domain" content="https://codafolks.com" />
+  <meta property="twitter:domain" content={meta.site_url} />
   <!-- <meta property="twitter:image" content={meta.image} /> -->
   <meta name="twitter:title" content={title ?? meta.title} />
   <meta name="twitter:description" content={description ?? meta.description} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@falconiererb" />
-  <meta name="twitter:creator" content="@falconiererb" />
+  <meta name="twitter:site" content="@codafolks" />
+  <meta name="twitter:creator" content="@codafolks" />
 
   <!-- Facebook Meta Tags -->
   <meta property="og:title" content={title ?? meta.title} />
-  <meta property="og:logo" content="https://codafolks.com/logo.png" />
+  <meta property="og:logo" content={meta.site_url + "/logo.png"} />
   <meta property="og:description" content={description ?? meta.description} />
   <meta property="og:image:alt" content={meta.coverAlt} />
   <meta property="og:image:width" content="1200" />

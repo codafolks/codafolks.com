@@ -20,6 +20,11 @@ const getLocalImageToBase64 = async (pathImage: string) => {
     const finalImage = Buffer.from(pngImage).toString('base64');
     return `data:image/png;base64,${finalImage}`;
   }
+
+  if (ext === "svg") {
+    return `data:image/svg+xml;base64,${Buffer.from(imageBuffer).toString('base64')}`;
+  }
+
   // transform the image to size 250x250
   // const resizedImage = await sharp(imageBuffer).resize(250, 250).toBuffer();
 
@@ -49,7 +54,7 @@ export const generateOGImage = async (params?: { collection: CollectionEntry<"bl
 
   const image = await getLocalImageToBase64(pathImage);
   const logo = await getLocalImageToBase64("./public/logo.png");
-  
+  const logoExtended = await getLocalImageToBase64("./public/logo-extended.svg");
 
   const template = html`
   <div style="
@@ -79,11 +84,20 @@ export const generateOGImage = async (params?: { collection: CollectionEntry<"bl
       <div style="display: flex; flex-direction: column; justify-content: center; flex: 1; margin: auto 0;">
         <h1 style="
           font-size: 48px;
-          margin: 0px; font-family: InterExtraBold; text-transform: uppercase;">
+          margin: 0px; font-family: InterExtraBold; text-transform: uppercase;
+          ${!isPost && `display: none;`}
+          ">
           ${title}
         </h1>
-        <p style="font-size: 24px; margin: 0px font-family: InterRegular;">
-          ${description}
+        <img src="${logoExtended}" style="
+          width: 100%; 
+          height:30%;
+          ${isPost && `display: none;`}
+        "/>
+        <p style="margin: 0px font-family: InterRegular;
+          ${isPost ? `font-size: 24px;` : `font-size: 60px; font-family: InterExtraBold; text-align: center; margin: auto 0; display: flex; align-items: center; justify-content: center;`}
+        ">
+          ${isPost ? description : "Coda Your Future Today"}
         </p>
       </div>
     </div>

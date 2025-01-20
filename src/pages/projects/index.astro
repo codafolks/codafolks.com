@@ -13,7 +13,7 @@ const projects = data.map(mapCollection).sort(sortByDate);
 ---
 
 <MainLayout>
-  <div class="mx-auto w-full max-w-7xl text-gray-100">
+  <div class="mx-auto w-full max-w-7xl min-h-[calc(100vh-200px)]">
     <div class="grid grid-cols-3 gap-4 py-8 w-full">
       {
         projects?.map((post) => (
