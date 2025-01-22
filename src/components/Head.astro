@@ -73,4 +73,25 @@ const { title, description, section } = Astro.props as Props;
       document.documentElement.classList.remove("dark");
     }
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XH5554ZQLH"
+  ></script>
+  <script>
+    interface GTagFunction {
+      (...args: any[]): void;
+    }
+    interface Window {
+      dataLayer: any[];
+      gtag: GTagFunction;
+    }
+    declare const window: Window;
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-XH5554ZQLH");
+  </script>
 </head>
