@@ -13,21 +13,21 @@ const {
 };
 
 const baseButtonClass =
-  "rounded-md focus:outline-none focus:ring-2 focus:ring-opacity-75 font-semibold px-4 py-2 inline-flex gap-1 items-center justify-center text-center cursor-pointer";
+  "rounded-md focus:outline-hidden focus:ring-2 focus:ring-opacity-75 font-semibold px-4 py-2 inline-flex gap-1 items-center justify-center text-center cursor-pointer";
 const buttonVariants = {
   primary: [
     baseButtonClass,
-    "bg-gradient-to-r from-pink-500 to-purple-700 text-white hover:from-pink-600 hover:to-purple-800 focus:ring-pink-500",
+    "bg-primary text-white hover:bg-primary/80 focus:ring-primary",
     overrideClasses,
   ],
   secondary: [
     baseButtonClass,
-    "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500",
+    "bg-secondary text-white hover:bg-secondary/80 focus:ring-secondary",
     overrideClasses,
   ],
   tertiary: [
     baseButtonClass,
-    "text-black hover:underline focus:underline",
+    "text-dark-gray hover:underline focus:underline bg-white ",
     overrideClasses,
   ],
   success: [
@@ -42,7 +42,7 @@ const buttonVariants = {
   ],
   link: [
     baseButtonClass,
-    "text-blue-500 hover:text-blue-600 focus:ring-blue-500",
+    "text-white hover:text-white/80 focus:underline ",
     overrideClasses,
   ],
 } as const;

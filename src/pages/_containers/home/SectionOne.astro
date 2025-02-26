@@ -1,19 +1,58 @@
 ---
-import logo from "@/assets/logo.svg";
-import AnimatedCode from "@/components/AnimatedCode.astro";
+import logo from "@/assets/logo-white.svg";
 import Section from "@/components/Section.astro";
 import { Image } from "astro:assets";
+import Button from "@/components/Button.astro";
 ---
 
-<Section id="section-one" class="bg-grid">
+<Section id="section-one" class="bg-dark-gray">
   <div
-    class="flex flex-col items-center m-auto w-full max-w-7xl"
+    class="flex flex-col items-center m-auto w-full max-w-7xl gap-2 z-10"
     id="section-one-content"
   >
-    <Image src={logo} alt="CodaFolks logo" class="w-full max-w-7xl h-auto" />
-    <h1 class="text-2lx sm:text-4xl md:text-[62px] font-extrabold py-2">
-      Coda Your Future Today
+    <h1 class="text-2lx sm:text-4xl md:text-7xl font-extrabold py-2 font-inter">
+      Coda Your <span class="text-primary font-inter">Future</span> Today
     </h1>
+    <p class="text-lg md:text-xl font-poppins text-center max-w-4xl">
+      Through the space and time, we are here to help you to coda your future.
+    </p>
+    <div class="flex gap-4 pt-4">
+      <Button as="a" href="/blog" variant="link">
+        Take a look at our Blog ->
+      </Button>
+    </div>
   </div>
-  <AnimatedCode />
 </Section>
+<script>
+  import { tsParticles } from "@tsparticles/engine";
+  import { loadStarsPreset } from "@tsparticles/preset-stars";
+  (async () => {
+    await loadStarsPreset(tsParticles);
+    await tsParticles.load({
+    id: "section-one",
+    options: {
+      preset: "stars",
+      
+      background: {
+        color: {
+          value: "transparent",
+        },
+      },
+      particles:{
+        move:{
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false,
+        },
+      },
+      autoPlay: true,
+      fullScreen: {
+        enable: true,
+      },
+    },
+    
+  });
+})();
+</script>

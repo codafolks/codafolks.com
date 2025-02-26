@@ -1,16 +1,62 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --font-inter: Inter, sans-serif;
+  --font-league-spartan: 'League Spartan', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --color-primary: #e55ca7;
+  --color-secondary: #772ed8;
+  --color-black: #000;
+  --color-dark-gray: #333333;
+}
+
+@layer theme {
+  :root {
+    --font-inter: Inter, sans-serif;
+    --font-league-spartan: 'League Spartan', sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
+    --primary-color: #e55ca7;
+    --secondary-color: #772ed8;
+  }
+}
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   html {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji
   }
-
-  .gradient-text {
-    background-image: linear-gradient(to right, #ec4899, #7e22ce);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  .diagonal-box {
+    position: relative;
+  }
+  .diagonal-box:before {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    transform: skewY(-11deg);
+  }
+  p,span{
+    font-family: var(--font-poppins);
   }
 }

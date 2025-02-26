@@ -1,5 +1,5 @@
 
-import { animate, inView, stagger } from "motion"
+import { animate, inView } from "motion"
 
 
 const h2 = document.querySelectorAll(".home-section h2") as NodeListOf<HTMLElement>
